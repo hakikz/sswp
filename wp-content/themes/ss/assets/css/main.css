@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500|Roboto+Slab:300,400,500&display=swap");
+.main_nav {
+  background-color: #fff; }
+
+body {
+  font-family: "Roboto Slab", serif;
+  background-color: #f4f4f4; }
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 40px 0; }
+  nav ul li.current_page_item a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #222; }
+  nav ul li:hover a {
+    text-decoration: none;
+    color: #222; }
+  nav ul li a {
+    font-family: "Poppins", sans-serif;
+    padding: 0 30px !important;
+    font-weight: 300;
+    color: #222; }
+
+.header {
+  padding: 50px 0 10px; }
+
+.footer {
+  padding-bottom: 50px; }
+  .footer .footer-logo-wrapper {
+    text-align: center; }
+    .footer .footer-logo-wrapper img {
+      max-width: 120px; }
+
+.slider .carousel-indicators .active {
+  background-color: #707070;
+  opacity: 0.5; }
+.slider .carousel-indicators li {
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  margin-left: 7px;
+  border-radius: 50%; }
+
+.content .content-wrapper {
+  display: block;
+  padding: 50px 0 30px; }
+  .content .content-wrapper .desc {
+    text-align: center;
+    color: #707070;
+    padding: 50px 0; }
+
+.about .about-wrapper:first-child p {
+  margin-bottom: 20px; }
+.about .about-wrapper h2 {
+  color: #707070; }
+.about .about-wrapper h4 {
+  font-family: "Roboto Slab", serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #707070;
+  margin-bottom: 20px; }
+.about .about-wrapper p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: #707070; }
+.about .img-wrapper {
+  padding: 50px 0; }
+
+.contact .contact-wrapper {
+  text-align: center; }
+  .contact .contact-wrapper:first-child p {
+    margin-bottom: 20px; }
+  .contact .contact-wrapper h4 {
+    font-family: "Roboto Slab", serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #707070;
+    margin-bottom: 20px; }
+  .contact .contact-wrapper p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: #707070; }
+.contact .img-wrapper {
+  padding: 50px 0; }
+
+.gallery-section {
+  padding: 50px 0 30px;
+  text-align: center; }
+  .gallery-section .display-bar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: block; }
+    .gallery-section .display-bar .img-area {
+      transition: 0.5s all ease-in-out;
+      max-width: 100%;
+      max-height: 453px;
+      filter: blur(8px);
+      z-index: 2; }
+    .gallery-section .display-bar .load-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 3;
+      display: block;
+      width: 150px;
+      height: 150px;
+      margin-left: -75px;
+      margin-top: -75px; }
+  .gallery-section .gallery-thumb {
+    cursor: pointer;
+    margin: 20px 0; }
+
+.projects {
+  margin-bottom: 50px; }
+  .projects .cat-nav {
+    padding: 50px 0 30px; }
+    .projects .cat-nav .thumb-wrppaer {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; }
+      .projects .cat-nav .thumb-wrppaer img {
+        z-index: 3; }
+      .projects .cat-nav .thumb-wrppaer .hover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: -160px;
+        left: 0;
+        z-index: 2;
+        border-radius: 5px;
+        color: #f4f4f4;
+        font-weight: 300;
+        transition: 0.5s top ease-in-out; }
+      .projects .cat-nav .thumb-wrppaer:hover .hover {
+        top: 0; }
+      .projects .cat-nav .thumb-wrppaer.active .hover {
+        top: 0; }
+  .projects .content-wrapper .contents {
+    padding: 50px 0; }
+    .projects .content-wrapper .contents .main-head,
+    .projects .content-wrapper .contents .sub-head,
+    .projects .content-wrapper .contents .semi-head {
+      color: #707070; }
+    .projects .content-wrapper .contents p, .projects .content-wrapper .contents ul {
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      color: #707070; }
+    .projects .content-wrapper .contents ul {
+      list-style: none;
+      padding: 0; }
+      .projects .content-wrapper .contents ul li {
+        position: relative;
+        display: block; }
+        .projects .content-wrapper .contents ul li::before {
+          content: "-";
+          position: relative;
+          left: 0;
+          top: 0;
+          display: inline-block;
+          margin-right: 10px; }
+    .projects .content-wrapper .contents .sub-head {
+      margin: 10px 0 30px; }
+    .projects .content-wrapper .contents .visit_link {
+      text-transform: uppercase;
+      font-family: "Poppins", sans-serif;
+      color: #707070;
+      text-decoration: underline; }
+    .projects .content-wrapper .contents .semi-head {
+      padding: 40px 0 30px; }
+    .projects .content-wrapper .contents form input {
+      border: none;
+      background-color: #f4f4f4;
+      border-bottom: 1px solid #707070;
+      border-radius: 0; }
+      .projects .content-wrapper .contents form input::placeholder {
+        font-family: "Poppins", sans-serif;
+        font-size: 15px; }
+      .projects .content-wrapper .contents form input:focus {
+        box-shadow: none; }
+    .projects .content-wrapper .contents form .btn-custom {
+      border: 1px solid #707070;
+      color: #707070; }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .logo-wrapper {
+    text-align: center; }
+    .logo-wrapper img {
+      max-width: 140px; }
+
+  nav {
+    text-align: center;
+    margin: 20px 0; }
+    nav .navbar-toggler {
+      width: 100%; }
+    nav ul {
+      background-color: #707070; }
+      nav ul li a {
+        padding: 15px 0 !important;
+        color: #f4f4f4 !important; }
+
+  .footer {
+    padding-bottom: 20px; }
+
+  /* About Page */
+  .about .about-wrapper {
+    text-align: center; }
+    .about .about-wrapper h2 {
+      font-size: 20px; }
+  .about .img-wrapper {
+    padding: 30px 0; }
+
+  /* Projects Page */
+  .projects .cat-nav {
+    padding: 30px 0 15px; }
+    .projects .cat-nav a {
+      margin-bottom: 10px;
+      display: block; }
+      .projects .cat-nav a .thumb-wrppaer .hover h6 {
+        font-size: 12px; }
+  .projects .content-wrapper .display-bar .load-icon {
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    margin-top: -25px; }
+  .projects .contents {
+    text-align: center; } }
+
+/*# sourceMappingURL=main.css.map */

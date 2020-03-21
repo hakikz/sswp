@@ -1,0 +1,31 @@
+.about{
+    .about-wrapper{
+        &:first-child{
+            p{
+                margin-bottom: 20px;
+            }
+        }
+        h2{
+            color: $ash;
+        }
+        h4{
+            font-family: $roboto;
+            font-weight: $med;
+            font-size: $font+5px;
+            color: $ash;
+            margin-bottom: 20px;
+        }
+    
+        p{
+            font-family: $poppins;
+            font-weight: $light;
+            font-size: $font;
+            color: $ash;
+    
+        }
+    }
+
+    .img-wrapper{
+        padding: 50px 0;
+    }
+}
