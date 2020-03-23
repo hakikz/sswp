@@ -13,66 +13,30 @@
 					<!-- Category Nav -->
 					<div class="cat-nav">
 						<div class="row">
+						<?php 
+							// $a = get_post();
+							// print_r($a);
+							$args = array('post_type'=> 'project', 'post_status' => 'publish', 'order' => 'ASC');
+							wp_reset_query();
+							$query = new WP_Query($args);
+							while($query->have_posts()) : $query->the_post();
+						?>
 							<div class="col-4 col-lg-2">
-								<a href="#">
-									<div class="thumb-wrppaer active">
-										<img src="assets/images/cat1.jpg" alt="Category" class="img-fluid">
+								<a href="<?php the_permalink($post->id) ?>">
+									<div class="thumb-wrppaer <?php if(is_single($post->post_name)){ echo 'active'; }  ?>">
+									<?php if(has_post_thumbnail()) {  ?>
+										<!-- <img src="assets/images/cat1.jpg" alt="Category" class="img-fluid"> -->
+										<?php the_post_thumbnail('full', array('class' => 'img-fluid')); ?>
+									<?php } ?>
 										<div class="hover">
-											<h6>Cheltenham</h6>
+											<h6><?php the_title(); ?></h6>
 										</div>
 									</div>
 								</a>
 							</div>
-							<div class="col-4 col-lg-2">
-								<a href="#">
-									<div class="thumb-wrppaer">
-										<img src="assets/images/cat2.jpg" alt="Category" class="img-fluid">
-										<div class="hover">
-											<h6>Cheltenham</h6>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="col-4 col-lg-2">
-								<a href="#">
-									<div class="thumb-wrppaer">
-										<img src="assets/images/cat3.jpg" alt="Category" class="img-fluid">
-										<div class="hover">
-											<h6>Cheltenham</h6>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="col-4 col-lg-2">
-								<a href="#">
-									<div class="thumb-wrppaer">
-										<img src="assets/images/cat4.jpg" alt="Category" class="img-fluid">
-										<div class="hover">
-											<h6>Cheltenham</h6>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="col-4 col-lg-2">
-								<a href="#">
-									<div class="thumb-wrppaer">
-										<img src="assets/images/cat5.jpg" alt="Category" class="img-fluid">
-										<div class="hover">
-											<h6>Cheltenham</h6>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="col-4 col-lg-2">
-								<a href="#">
-									<div class="thumb-wrppaer">
-										<img src="assets/images/cat6.jpg" alt="Category" class="img-fluid">
-										<div class="hover">
-											<h6>Cheltenham</h6>
-										</div>
-									</div>
-								</a>
-							</div>
+						<?php
+							endwhile;
+						?>
 						</div>
 					</div>
 					<!-- /.Categroy Nav -->

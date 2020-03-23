@@ -1,5 +1,33 @@
 <?php 
 
+/**
+ * Theme Support
+ */
+
+function ss_theme_support() {
+    /*
+	 * Enable support for Post Thumbnails on posts and pages.
+	 *
+	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+	 */
+    add_theme_support( 'post-thumbnails' );
+    
+
+    /*
+     * Let WordPress manage the document title.
+     * By adding theme support, we declare that this theme does not use a
+     * hard-coded <title> tag in the document head, and expect WordPress to
+     * provide it for us.
+     */
+
+    add_theme_support( 'title-tag' );
+}
+
+add_action( 'after_setup_theme', 'ss_theme_support' );
+/**
+ * Including Scripts
+ */
+
 function ss_scripts() {
     wp_enqueue_style( 'style', get_stylesheet_uri() );
 
@@ -80,8 +108,48 @@ function projects_post_type() {
         'has_archive'        => true,
         // 'taxonomies'         => array('category'), 
         'rewrite'            => array( 'slug' => 'project' ),
-        // 'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
     );
     register_post_type( 'project', $args );
 }
 add_action( 'init', 'projects_post_type' );
+
+
+/**
+ * Redirect post type archive page to first post
+ *
+ * @return void
+ */
+function redirect_to_first_post_projects() {
+
+    if( is_post_type_archive( 'project' ) ) {
+
+        // Grab the first artist post ID and store it in an array
+        $posts = get_posts( array(
+            'post_type'         => 'project',
+            'posts_per_page'    => 1,
+            'fields'            => 'ids',
+            'orderby'           => array( 'menu_order' => 'ASC', 'post_date' => 'ASC' ),
+        ) );
+
+        // If our array isn't empty, redirect
+        if( ! empty( $posts ) ) {
+            wp_redirect( get_permalink( $posts[0] ), 301 );     // Variable $posts[0] holds the artist post ID
+            exit();
+        }
+
+    }
+
+}
+add_action( 'template_redirect', 'redirect_to_first_post_projects' );
+
+
+
+function wp_nav_parent_class( $classes, $item ) {
+
+    if( 'project' == get_post_type() && $item->title == "Projects" )
+        array_push($classes, 'current_page_item');
+
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'wp_nav_parent_class', 10, 2);
