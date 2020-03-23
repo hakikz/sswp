@@ -30,6 +30,9 @@ if ( ! function_exists( 'mytheme_register_nav_menu' ) ) {
         register_nav_menus( array(
             'primary_menu' => __( 'Primary Menu', 'ss' ),
         ) );
+        register_nav_menus( array(
+            'cat_menu' => __( 'Category Menu', 'ss' ),
+        ) );
     }
     add_action( 'after_setup_theme', 'ss_register_nav_menu', 0 );
 }
@@ -62,3 +65,23 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 }
+
+
+/**
+ * Register Post Type for Projects
+ */
+
+function projects_post_type() {
+    $args = array(
+        'public'    => true,
+        'label'     => __( 'Projects', 'ss' ),
+        'menu_icon' => 'dashicons-book',
+        'show_in_menu'       => true,
+        'has_archive'        => true,
+        // 'taxonomies'         => array('category'), 
+        'rewrite'            => array( 'slug' => 'project' ),
+        // 'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+    );
+    register_post_type( 'project', $args );
+}
+add_action( 'init', 'projects_post_type' );
