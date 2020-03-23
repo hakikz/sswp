@@ -3,9 +3,6 @@
 ?>
 
     <!-- Content -->
-    <?php
-        while ( have_posts() ) : the_post();
-    ?>
     <section class="content projects">
 		<div class="container">
 			<div class="row">
@@ -78,6 +75,9 @@
 									</div>
 								</div>
 							</div>
+							<?php
+								while ( have_posts() ) : the_post();
+							?>
 							<div class="col-lg-5">
 								<div class="contents">
 									<h3 class="main-head"><?php the_title(); ?></h3>
@@ -85,6 +85,9 @@
 									<?php the_field('register'); ?>
 								</div>
 							</div>
+							<?php
+								endwhile; 
+							?>
 						</div>
 					</div>
 				</div>
@@ -92,9 +95,7 @@
 		</div>
 	</section>
     <!-- /.Content -->
-    <?php
-        endwhile; 
-    ?>
+    
 
 <?php
     get_footer();
